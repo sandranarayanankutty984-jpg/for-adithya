@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Letter For You 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  min-height:100vh;
+  background: radial-gradient(circle at center, #c9b08c, #9e7e5d);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Dancing Script', cursive;
+  overflow-y:auto;
+  padding:80px 0;
+}
+
+/* ENVELOPE */
+.envelope{
+  width:380px;
+  height:250px;
+  background:#e6d2b5;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  transition:0.6s;
+}
+
+.envelope:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#d8bfa3;
+  clip-path:polygon(0 0, 50% 50%, 100% 0);
+  transform-origin:top;
+  transition:0.8s;
+}
+
+.envelope.open:before{
+  transform:rotateX(180deg);
+}
+
+.open-text{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  font-size:22px;
+  color:#5a3e2b;
+}
+
+/* LETTER */
+.letter-container{
+  position:relative;
+  display:none;
+  max-width:750px;
+  margin:40px;
+  animation:fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.paper{
+  background:#f4e4c8;
+  padding:70px 60px;
+  border-radius:20px;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.5),
+    inset 0 0 80px rgba(0,0,0,0.25);
+  position:relative;
+  transform:rotate(-2deg);
+}
+
+/* Dark vintage edges */
+.paper:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  box-shadow: inset 0 0 100px rgba(90,60,30,0.6);
+  pointer-events:none;
+}
+
+/* Ruled lines */
+.paper:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 38px,
+      rgba(0,0,0,0.08) 39px
+    );
+  border-radius:20px;
+  pointer-events:none;
+}
+
+/* Crumple texture overlay */
+.texture{
+  position:absolute;
+  inset:0;
+  background-image:url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  opacity:0.3;
+  mix-blend-mode:multiply;
+  border-radius:20px;
+  pointer-events:none;
+}
+
+.letter-content{
+  position:relative;
+  font-size:26px;
+  line-height:1.8;
+  color:#3e2a1d;
+  font-style:italic;
+  text-shadow:0 0 1px rgba(0,0,0,0.4);
+}
+
+/* Ink bleed effect */
+.letter-content p{
+  margin-bottom:30px;
+  filter:contrast(105%);
+}
+
+.signature{
+  margin-top:50px;
+  text-align:right;
+}
+
+/* Continue button */
+.continue-btn{
+  margin-top:40px;
+  display:inline-block;
+  padding:12px 30px;
+  background:#8b5e3c;
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:18px;
+  transition:0.3s;
+}
+
+.continue-btn:hover{
+  background:#6f472c;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openLetter()">
+  <div class="open-text">Click to open 💌</div>
+</div>
+
+<div class="letter-container" id="letter">
+  <div class="paper">
+    <div class="texture"></div>
+    <div class="letter-content">
+
+<p>Hey Babygirl,</p>
+
+<p>I hope you are doing well (You should). I know we met yesterday but I'm already missing you. I didn't get any gift ideas so I thought I would do something like this. Hope u like this thing. Actually I don't know what to write in this letter! Should I confess? But I already did that! Hmmmmmmmm lemme think a bit..........</p>
+
+<p>Okayy so do you love mee???</p>
+
+<p>I hope we can meet and stay soon. I'm trying so hard to write this letter. It's like I don't have any creative stuff in my mind.</p>
+
+<p>When are u gonna sing me a song? How long should I have to wait?</p>
+
+<p>I was thinking of posting our picture on this Valentine’s Day (soft launch only). What u say? Is it too early for doing that?</p>
+
+<p>Why don't u clean shave your face? At least for once I want to see it. Hmmm it's okay — your beard, your choice. Who am I to tell, leee? 😒</p>
+
+<p>Aah anyway leave it. I'm ending this here — the letter obviously. I am not getting anything to write. I will write u some other day. Okayy byee baby girl. I love youuuu ❤️</p>
+
+<div class="signature">
+With lovee <br>
+Your Baby 🤭
+</div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function openLetter(){
+  document.querySelector(".envelope").classList.add("open");
+  setTimeout(()=>{
+    document.querySelector(".envelope").style.display="none";
+    document.getElementById("letter").style.display="block";
+  },800);
+}
+</script>
+
+</body>
+</html>
+
